@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <style>
+        #student-info {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="student-info"></div>
+
+    <script>
+        // Person class definition
+        class Person {
+            #name; // Private field
+            #age;  // Private field
+            #occupation; // Private field
+
+            constructor(name, age, occupation) {
+                this.#name = name;
+                this.#age = age;
+                this.#occupation = occupation;
+            }
+
+            getName() {
+                return this.#name;
+            }
+
+            getAge() {
+                return this.#age;
+            }
+
+            getOccupation() {
+                return this.#occupation;
+            }
+        }
+
+        // Student class that extends Person
+        class Student extends Person {
+            #major; // Private field
+
+            constructor(name, age, occupation, major) {
+                super(name, age, occupation);
+                this.#major = major;
+            }
+
+            getMajor() {
+                return this.#major;
+            }
+        }
+
+        // Create a Student instance
+        const student = new Student('Kert', 19, 'Student', '');
+
+        // Display student information in the div
+        const studentInfoDiv = document.getElementById('student-info');
+        studentInfoDiv.innerHTML = `
+            <h2>Student Information</h2>
+            <p>Name: ${student.getName()}</p>
+            <p>Age: ${student.getAge()}</p>
+            <p>Occupation: ${student.getOccupation()}</p>
+            <p>Major: ${student.getMajor()}</p>
+        `;
+    </script>
+</body>
+</html>
